@@ -1,0 +1,22 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Testing Octopress
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  This is an experimental blog, for testing Octopress features.
+baseurl: "/octopress-test" # the subpath of your site, e.g. /blog
+url: "http://zoltan.nz" # the base hostname & protocol for your site
+twitter_username: szines
+github_username: szines
+
+# Build settings
+markdown: redcarpet
+
+# Url structure /category-name/title-of-the-post
+permalink: /:categories/:title
