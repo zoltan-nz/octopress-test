@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://zoltan.nz/octopress-test/test/first-test-post/</loc>
+    <lastmod>2015-12-04T22:22:49+13:00</lastmod>
+  </url>
+  <url>
+    <loc>http://zoltan.nz/octopress-test/jekyll/welcome-to-jekyll/</loc>
+    <lastmod>2015-12-04T21:29:19+13:00</lastmod>
+  </url>
+  <url>
+    <loc>http://zoltan.nz/octopress-test/about/</loc>
+  </url>
+  <url>
+    <loc>http://zoltan.nz/octopress-test/</loc>
+  </url>
+    <url>
+      <loc>http://zoltan.nz/octopress-test/jekyll/welcome-to-jekyll/</loc>
+    </url>
+    <url>
+      <loc>http://zoltan.nz/octopress-test/test/first-test-post/</loc>
+    </url>
+</urlset>
