@@ -18,5 +18,15 @@ github_username: szines
 # Build settings
 markdown: redcarpet
 
-# Url structure /category-name/title-of-the-post
-permalink: /:categories/:title
+# Url structure /category-name/title-of-the-post/
+permalink: /:categories/:title/
+
+exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md']
+
+assets:
+  cachebust: hard
+
+compress_html:
+  ignore:
+    envs: [development]
+  profile: false

@@ -1,11 +1,16 @@
+---
+layout: compress
+---
+
 <!DOCTYPE html>
 <html>
 
   {% include head.html %}
 
   <body>
+  <div class="container">
 
-    {% include header.html %}
+      {% include navigation.html %}
 
     <div class="page-content">
       <div class="wrapper">
@@ -14,7 +19,8 @@
     </div>
 
     {% include footer.html %}
-
+  </div>
+  {% javascript app %}
   </body>
 
 </html>
