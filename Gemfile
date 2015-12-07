@@ -14,3 +14,8 @@ gem 'font-awesome-sass'
 
 # Generate sitemap
 gem 'jekyll-sitemap'
+
+# Livereload
+gem 'guard'
+gem 'guard-livereload'
+gem 'guard-jekyll-plus'

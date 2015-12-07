@@ -21,7 +21,7 @@ markdown: redcarpet
 # Url structure /category-name/title-of-the-post/
 permalink: /:categories/:title/
 
-exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md']
+exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md', 'Guardfile', '.asset-cache', '.sass-cache', '.deploy']
 
 assets:
   cachebust: hard
