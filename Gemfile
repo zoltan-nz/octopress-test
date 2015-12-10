@@ -19,3 +19,6 @@ gem 'jekyll-sitemap'
 gem 'guard'
 gem 'guard-livereload'
 gem 'guard-jekyll-plus'
+
+# Foreman to launch two processes together
+gem 'foreman'

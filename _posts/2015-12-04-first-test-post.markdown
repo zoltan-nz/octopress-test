@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Test Post"
+title: "A Test Post Renamed Again"
 date: 2015-12-04T22:22:49+13:00
 categories: test
 ---

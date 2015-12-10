@@ -19,11 +19,20 @@ Launching doc
 octopress docs
 ```
 
-Launching the server
+Launching the server and guard
+
+Launch the two commands in two terminal, or use foreman 
 
 ```
 jekyll clean && jekyll serve --incremental -w
+guard
 ```
+
+```
+foreman start
+```
+
+
 
 ### Setup deploy
 
