@@ -1,26 +1,15 @@
 ---
 layout: compress
 ---
-
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
   <body>
-  <div class="container">
-
       {% include navigation.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
+    <div class="container">
         {{ content }}
-      </div>
     </div>
-
     {% include footer.html %}
-  </div>
   {% javascript app %}
   </body>
-
 </html>

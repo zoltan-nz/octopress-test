@@ -1,2 +1,2 @@
-jekyll: jekyll clean && jekyll serve --incremental -w
+jekyll: jekyll clean && jekyll serve -w
 guard: guard

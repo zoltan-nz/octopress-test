@@ -19,12 +19,12 @@ Launching doc
 octopress docs
 ```
 
-Launching the server and guard
+**Launching server and guard**
 
-Launch the two commands in two terminal, or use foreman 
+Launch the two commands in two terminal, or use foreman
 
 ```
-jekyll clean && jekyll serve --incremental -w
+jekyll clean && jekyll serve -w
 guard
 ```
 
@@ -147,15 +147,15 @@ Add active class automatically to navigation bar.
 ```html
 <!-- ./_includes/navigation.html -->
 <div class="collapse navbar-collapse" id="main-navbar">
-        <ul class="nav navbar-nav">
-          <li class="{% if page.url == '/' %}active{% endif %}"><a href="{{ '/' | prepend: site.baseurl }}">Home</a></li>
-          {% for my_page in site.pages %}
-            {% if my_page.title %}
-              <li class="{% if page.url == my_page.url %}active{% endif %}"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
+  <ul class="nav navbar-nav">
+    <li class="{% if page.url == '/' %}active{% endif %}"><a href="{{ '/' | prepend: site.baseurl }}">Home</a></li>
+    {% for my_page in site.pages %}
+    	{% if my_page.title %}
+      	<li class="{% if page.url == my_page.url %}active{% endif %}"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+       {% endif %}
+    {% endfor %}
+  </ul>
+</div>
 ```
 
 ###Livereload
@@ -186,5 +186,49 @@ Launch guard to activate livereload:
 ```
 guard
 ```
+###Adding Foreman to launch jekyll and guard together
 
+Gemfile:
+```
+gem 'foreman'
+```
 
+Procfile:
+```
+jekyll: jekyll clean && jekyll serve -w
+guard: guard
+```
+
+###Tweeks with template
+
+* Creating a `home.html` in `_includes` folder
+* Move homepage content to `home.html`
+
+Update `index.html`:
+```
+---
+layout: default
+---
+
+{% include home.html %}
+```
+
+###Blog structure and style
+
+> * Bootstrap examples: http://getbootstrap.com/examples/blog/#
+* Html: view-source:http://getbootstrap.com/examples/blog/#
+* CSS: http://getbootstrap.com/examples/blog/blog.css
+
+Style update:
+```css
+html {
+  overflow-y: scroll;
+}
+
+.blog-masthead {
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+          box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+```
+
+* Update navlink-default variables in bootstrap `_variables.scss`
