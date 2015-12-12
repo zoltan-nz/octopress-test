@@ -6,12 +6,12 @@
 </description>
     <link>http://zoltan.nz/octopress-test/</link>
     <atom:link href="http://zoltan.nz/octopress-test/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Dec 2015 20:05:55 +1300</pubDate>
-    <lastBuildDate>Sun, 06 Dec 2015 20:05:55 +1300</lastBuildDate>
+    <pubDate>Sat, 12 Dec 2015 22:01:04 +1300</pubDate>
+    <lastBuildDate>Sat, 12 Dec 2015 22:01:04 +1300</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>First Test Post</title>
+        <title>A Test Post Renamed Again</title>
         <description>&lt;p&gt;This is an example post. Nothing special here.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newVariable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;something&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
@@ -29,7 +29,7 @@
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
+        <title>Welcome to Jekyll from Octopress!</title>
         <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
