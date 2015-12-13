@@ -232,3 +232,6 @@ html {
 ```
 
 * Update navlink-default variables in bootstrap `_variables.scss`
+
+Purple: #3b2f63
+Pink: #ff0066
