@@ -1,11 +1,40 @@
-<ul class="post-list">
-    {% for post in site.posts %}
-    <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+<div class="blog-header">
+  <h1 class="blog-title">{{site.title}}</h1>
+  <p class="lead blog-description">{{site.description}}</p>
+</div>
 
-        <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+<div class="row">
+  <div class="col-sm-12">
+    {% for post in site.posts %}
+    <article>
+      <header>
+
+        <h2 class="blog-post-title">
+          <a href="{{ post.url | prepend: site.baseurl }}">
+            {{ post.title }}
+          </a>
         </h2>
-    </li>
+
+        <p class="blog-post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+          <span class="day">
+              {{ post.date | date: "%-d" }}
+          </span>
+          <span class="month-year">
+              {{ post.date | date: "%b %Y" }}
+          </span>
+          </time>
+        </p>
+      </header>
+      <section>
+        <p>{{ post.content | strip_html | truncatewords:40 }}</p>
+      </section>
+
+      {% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}"
+                                         title="Other posts from the {{ tag | capitalize }} category">{{ tag |
+      capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
+
+    </article>
     {% endfor %}
-</ul>
+  </div>
+</div>
