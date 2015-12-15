@@ -4,37 +4,44 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-12">
+  <section class="col-sm-8">
     {% for post in site.posts %}
-    <article>
-      <header>
+      <article>
+        <header>
 
-        <h2 class="blog-post-title">
-          <a href="{{ post.url | prepend: site.baseurl }}">
-            {{ post.title }}
-          </a>
-        </h2>
+          <h2 class="blog-post-title">
+            <a href="{{ post.url | prepend: site.baseurl }}">
+              {{ post.title }}
+            </a>
+          </h2>
 
-        <p class="blog-post-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">
-          <span class="day">
-              {{ post.date | date: "%-d" }}
-          </span>
-          <span class="month-year">
-              {{ post.date | date: "%b %Y" }}
-          </span>
-          </time>
-        </p>
-      </header>
-      <section>
-        <p>{{ post.content | strip_html | truncatewords:40 }}</p>
-      </section>
+          <p class="blog-post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+            <span class="day">
+                {{ post.date | date: "%-d" }}
+            </span>
+            <span class="month-year">
+                {{ post.date | date: "%b %Y" }}
+            </span>
+            </time>
+          </p>
+        </header>
 
-      {% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}"
-                                         title="Other posts from the {{ tag | capitalize }} category">{{ tag |
-      capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
+        <section>
+          <p>{{ post.content | strip_html | truncatewords:40 }}</p>
+        </section>
 
-    </article>
+        {% for category in post.categories %}
+          <a href="{{ site.baseurl }}/categories/#{{ post.categories | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} category">{{ category |
+          capitalize }}</a>
+          {% unless forloop.last %}&nbsp;{% endunless %}
+        {% endfor %}
+
+      </article>
     {% endfor %}
-  </div>
+  </section>
+
+  <aside class="col-sm-4">
+
+  </aside>
 </div>
