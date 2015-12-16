@@ -30,3 +30,6 @@ compress_html:
   ignore:
     envs: [development]
   profile: false
+
+# Show blog-header
+show_header: false
