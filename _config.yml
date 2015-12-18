@@ -31,5 +31,9 @@ compress_html:
     envs: [development]
   profile: false
 
+####
+#  CUSTOM COMPONENTS
+####
+
 # Show blog-header
 show_header: false

@@ -233,5 +233,31 @@ html {
 
 * Update navlink-default variables in bootstrap `_variables.scss`
 
+```
 Purple: #3b2f63
 Pink: #ff0066
+Red: #e25351
+```
+
+###Add conditional structure element
+
+For example, conditionally showing blog-header.
+
+Add a variable to `_config.yml`
+
+```
+show_header: false
+```
+
+Use this variable in the template.
+
+```html
+{% if site.show_header %}
+
+<div class="blog-header">
+  <h1 class="blog-title">{{site.title}}</h1>
+  <p class="lead blog-description">{{site.description}}</p>
+</div>
+
+{% endif %}
+```
