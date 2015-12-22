@@ -36,16 +36,20 @@ html {
  * Blog posts
  */
 
+.blog-post-list-item {
+ margin-bottom: 30px;
+}
 .blog-post {
   margin-bottom: 60px;
 }
 .blog-post-title {
-  margin-bottom: 5px;
-  font-size: 40px;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 .blog-post-meta {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: #999;
+  font-size: ceil($font-size-small * 0.9);
 }
 
 
