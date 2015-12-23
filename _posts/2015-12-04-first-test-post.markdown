@@ -7,6 +7,7 @@ categories: test
 
 This is an example post. Nothing special here.
 
+{% faker Lorem paragraph 10 %}
 
 ```javascript
 let newVariable = 'something';
