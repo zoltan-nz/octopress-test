@@ -1,5 +1,4 @@
 require 'faker'
-require 'pry'
 
 module Jekyll
   class FakerTag < Liquid::Tag
