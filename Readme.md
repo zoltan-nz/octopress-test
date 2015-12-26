@@ -310,3 +310,11 @@ Original: Faker::Lorem.paragraph(10)
 As a tag:
 {% faker Lorem paragraph 10 %}
 ```
+
+###Category listing page
+
+> https://github.com/shigeya/jekyll-category-archive-plugin
+
+> http://jekyllrb.com/docs/plugins/#generators
+
+> http://jekyllrb.com/docs/variables/
