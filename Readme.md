@@ -311,6 +311,10 @@ As a tag:
 {% faker Lorem paragraph 10 %}
 ```
 
+###Fake article generator
+
+
+
 ###Category listing page
 
 > https://github.com/shigeya/jekyll-category-archive-plugin
@@ -318,3 +322,59 @@ As a tag:
 > http://jekyllrb.com/docs/plugins/#generators
 
 > http://jekyllrb.com/docs/variables/
+
+Create a `_plugins` page:
+
+```ruby
+module Jekyll
+
+  class CategoryPage < Page
+    def initialize(site, base, dir, category)
+      @site = site
+      @base = base
+      @dir = dir
+      @name = 'index.html'
+
+      self.process(@name)
+      self.read_yaml(File.join(base, '_layouts'), 'category_index.html')
+      self.data['category'] = category
+
+      category_title_prefix = site.config['category_title_prefix'] || 'Category: '
+      self.data['title'] = "#{category_title_prefix}#{category}"
+    end
+  end
+
+  class CategoryPageGenerator < Generator
+    safe true
+
+    def generate(site)
+      if site.layouts.key? 'category_index'
+        dir = site.config['category_dir'] || 'categories'
+        site.categories.each_key do |category|
+          site.pages << CategoryPage.new(site, site.source, File.join(dir, category), category)
+        end
+      end
+    end
+  end
+
+end
+```
+
+Createa a layout in `/_layouts/category_index.html`:
+
+```html
+---
+layout: default
+---
+
+<h1>{{page.category | capitalize}} category index</h1>
+```
+
+
+Filter out category index pages from navigation bar:
+
+```ruby
+  {% unless my_page.url contains '/categories/' %}
+    <li class="{% if page.url == my_page.url %}active{% endif %}"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+  {% endunless %}
+```

@@ -1,4 +1,3 @@
-require 'pry'
 module Jekyll
 
   class CategoryPage < Page
@@ -21,7 +20,6 @@ module Jekyll
     safe true
 
     def generate(site)
-      binding.pry
       if site.layouts.key? 'category_index'
         dir = site.config['category_dir'] || 'categories'
         site.categories.each_key do |category|
