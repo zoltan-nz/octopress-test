@@ -370,11 +370,22 @@ layout: default
 <h1>{{page.category | capitalize}} category index</h1>
 ```
 
-
 Filter out category index pages from navigation bar:
 
 ```ruby
   {% unless my_page.url contains '/categories/' %}
     <li class="{% if page.url == my_page.url %}active{% endif %}"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
   {% endunless %}
+```
+
+List posts on the category index page:
+
+```html
+{% for post in site.posts %}
+<ul>
+  {% if post.categories contains page.category %}
+    <li><a href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a></li>
+  {% endif %}
+</ul>
+{% endfor %}
 ```
