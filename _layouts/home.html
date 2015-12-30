@@ -11,6 +11,12 @@ layout: default
 
 {% endif %}
 
+{% if page.content.size %}
+
+  {{content}}
+
+{% endif %}
+
 <div class="row">
   <section class="col-sm-8">
     {% for post in site.posts %}
