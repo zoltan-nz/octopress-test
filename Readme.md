@@ -389,3 +389,17 @@ List posts on the category index page:
 </ul>
 {% endfor %}
 ```
+
+### Markdown on home page
+
+Rename index.html to index.md
+
+Add to `_layouts/home.html`:
+
+```
+{% if page.content.size %}
+
+  {{content}}
+
+{% endif %}
+```
