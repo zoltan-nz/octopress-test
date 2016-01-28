@@ -4,32 +4,32 @@
 
 Installing the octopress package.
 ```
-gem install octopress
+$ gem install octopress
 ```
 
 Creating the blog
 
 ```
-octopress new octopress-test
+$ octopress new octopress-test
 ```
 
 Launching doc
 
 ```
-octopress docs
+$ octopress docs
 ```
 
-**Launching server and guard**
+### Launching server and guard
 
 Launch the two commands in two terminal, or use foreman
 
 ```
-jekyll clean && jekyll serve -w
-guard
+$ jekyll clean && jekyll serve -w
+$ guard
 ```
 
 ```
-foreman start
+$ foreman start
 ```
 
 
@@ -37,7 +37,7 @@ foreman start
 ### Setup deploy
 
 ```
-octopress deploy init git git@github.com:szines/octopress-test
+$ octopress deploy init git git@github.com:szines/octopress-test
 ```
 
 * Change branch to `gh-pages` in project repository, keep `master` for account main page.
@@ -53,15 +53,14 @@ _site
 .deploy
 ```
 
-
-Deploy
+### Deploy
 
 ```
 jekyll clean && JEKYLL_ENV=production jekyll build
 octopress deploy
 ```
 
-##Customizing
+## Customization log
 
 Setup Gemfile
 
@@ -91,7 +90,7 @@ Bundler.require(:default)
 
 Create assets folders
 
-```
+```bash
 mkdir _assets
 mkdir _assets/images
 mkdir _assets/stylesheets
@@ -133,14 +132,14 @@ exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md', 'Guardfile', '.asset-cache', '
 Other great article:
 > https://medium.com/design-open/becoming-a-jekyll-god-ef722e93f771#.z1c7pssn5
 
-###Minify the HTML
+### Minify the HTML
 
 * Download compress.html: https://github.com/penibelst/jekyll-compress-html
 * Update default.html.
 
 Add robots.txt
 
-###Navigation bar active class management
+### Navigation bar active class management
 
 Add active class automatically to navigation bar.
 
@@ -158,10 +157,10 @@ Add active class automatically to navigation bar.
 </div>
 ```
 
-###Livereload
+### Livereload
 > http://dan.doezema.com/2014/01/setting-up-livereload-with-jekyll/
 
-```
+```ruby
 gem 'guard'
 gem 'guard-jekyll-plus'
 gem 'guard-livereload'
@@ -169,7 +168,7 @@ gem 'guard-livereload'
 
 Guardfile:
 
-```
+```ruby
 ignore /.asset-cache/,/.deploy/,/_site/,/.sass-cache/,/.idea/
 
 guard 'jekyll-plus' do
@@ -199,7 +198,23 @@ jekyll: jekyll clean && jekyll serve -w
 guard: guard
 ```
 
-###Tweeks with template
+Insert the following code in the default template header.
+
+```
+  {% if jekyll.environment == 'development' %}
+    <script>
+      var livereloadPath = 'http://' + location.hostname + ':35729/livereload.js';
+      var scriptElement = document.createElement('script');
+      var thisScript = document.getElementsByTagName('script')[0];
+      scriptElement.async = 1;
+      scriptElement.src = livereloadPath;
+      thisScript.parentNode.insertBefore(scriptElement, thisScript);
+    </script>
+  {% endif %}
+```
+
+
+### Tweeks with template
 
 * Creating a `home.html` in `_includes` folder
 * Move homepage content to `home.html`
@@ -239,7 +254,7 @@ Pink: #ff0066
 Red: #e25351
 ```
 
-###Add conditional structure element
+### Add conditional structure element
 
 For example, conditionally showing blog-header.
 
@@ -262,7 +277,7 @@ Use this variable in the template.
 {% endif %}
 ```
 
-###Creating a {% faker %} tag for using Faker gem
+### Creating a {% faker %} tag for using Faker gem
 
 > http://jekyllrb.com/docs/plugins/#tags
 
@@ -311,11 +326,51 @@ As a tag:
 {% faker Lorem paragraph 10 %}
 ```
 
-###Fake article generator
+### Fake article generator
 
+Create a `faker_tag.rb` plugin in `_plugins` folder:
 
+```ruby
+require 'faker'
 
-###Category listing page
+module Jekyll
+  class FakerTag < Liquid::Tag
+
+    def initialize(tag_name, command, options)
+      super
+      @class = command.split[0]
+      @method = command.split[1]
+      @param1 = Integer(command.split[2]) rescue command.split[2]
+      @param2 = Integer(command.split[3]) rescue command.split[3]
+      @param3 = Integer(command.split[4]) rescue command.split[4]
+    end
+
+    def render(context)
+      klass = Faker.class_eval(@class)
+
+      if @param2
+        return klass.send(@method, @param1, @param2)
+      end
+
+      if @param1
+        return klass.send(@method, @param1)
+      end
+
+      klass.send(@method)
+    end
+  end
+end
+
+Liquid::Template.register_tag('faker', Jekyll::FakerTag)
+```
+
+Usage of `faker` helper in template:
+
+```
+{% faker Lorem paragraph 10 %}
+```
+
+### Category listing page
 
 > https://github.com/shigeya/jekyll-category-archive-plugin
 
@@ -360,9 +415,12 @@ module Jekyll
 end
 ```
 
+
 Createa a layout in `/_layouts/category_index.html`:
 
+
 ```html
+
 ---
 layout: default
 ---
@@ -396,10 +454,20 @@ Rename index.html to index.md
 
 Add to `_layouts/home.html`:
 
-```
+```liquid
 {% if page.content.size %}
 
   {{content}}
 
 {% endif %}
 ```
+
+### Don't forget to add to your project
+
+* CNAME
+* .nojekyll
+
+### Debugging
+
+There is a debugger gem for jekyll: `gem 'octopress-debugger'`
+More info: [https://github.com/octopress/debugger](https://github.com/octopress/debugger)
