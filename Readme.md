@@ -51,6 +51,7 @@ _site
 .asset-cache
 .jekyll-metadata
 .deploy
+build
 ```
 
 ### Deploy
@@ -416,7 +417,7 @@ end
 ```
 
 
-Createa a layout in `/_layouts/category_index.html`:
+Create a layout in `/_layouts/category_index.html`:
 
 
 ```html
